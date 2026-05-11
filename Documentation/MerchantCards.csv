@@ -1,0 +1,12 @@
+cardId,cardName,description,rarity,category,timing,energyCost,targetType,range,cooldownTurns,exhaust,effects
+MER_001,攻击,对目标造成5点伤害（命中破绽翻倍）；造成伤害后获得=能耗的局内金币,Common,Attack,Normal,1,SingleEnemy,1,0,FALSE,DamageEffect{damage=5} + GoldGainOnAttackEffect{baseGold=1}
+MER_002,防御,获得5点格挡,Common,Skill,Normal,1,Self,0,0,FALSE,BlockEffect{block=5;self=true}
+MER_003,移动,移动1个单位,Common,Movement,Normal,0,HexCell,1,0,FALSE,MoveEffect{maxSteps=1}
+MER_004,撒币,花光所有局内金币，造成等额伤害,Uncommon,Attack,Normal,1,SingleEnemy,1,0,FALSE,ScatterGoldEffect{maxSpend=0}
+MER_005,百宝箱,从仓库随机1个圣遗物给目标，战斗结束后归还,Uncommon,Skill,Normal,1,SingleAlly,2,0,FALSE,TreasureChestEffect{}
+MER_006,以物换物,与目标交换同种类物品（速度），持续2回合,Uncommon,Skill,Normal,1,SingleAlly,2,0,FALSE,BarterEffect{duration=2}
+MER_007,购物时间,打开商店，可租用任意物品（占位：+20金币）,Rare,Skill,Normal,2,Self,0,0,FALSE,ShopTimeEffect{loanGold=20}
+MER_008,暴利时刻,5回合内获得的局内金币翻倍,Rare,Power,Normal,2,Self,0,0,FALSE,ProfitTimeEffect{duration=5;multiplier=2}
+MER_009,废物利用,弃1张手牌，获得=能耗的局内金币,Common,Skill,Normal,0,Self,0,0,FALSE,RecycleEffect{discardCount=1}
+MER_010,时间就是金钱,对濒死目标使用，1:1金币消耗替代受伤,Legendary,Skill,Reaction,2,SingleAlly,2,0,FALSE,TimeIsMoneyEffect{}
+MER_011,放弃决策,中断目标下一张卡的效果,Rare,Skill,Reaction,1,SingleEnemy,2,0,FALSE,CancelDecisionEffect{}

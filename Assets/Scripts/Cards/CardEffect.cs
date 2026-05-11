@@ -35,6 +35,17 @@ namespace JailerGame.Cards
         public BreakPointType CasterClass = BreakPointType.None;
 
         public BreakPointSystem BreakPointSystem;
+
+        // ====== 卡牌结算后的副作用标记（由具体效果设置，TurnManager / BossArenaManager 读取）======
+
+        /// <summary>本张卡结算完毕后立即结束本回合（暗中前行、按兵不动）</summary>
+        public bool EndTurnAfter = false;
+
+        /// <summary>结算完毕后将当前手牌（除本卡外）全部丢入弃牌堆（殊死一搏）</summary>
+        public bool DiscardEntireHandAfter = false;
+
+        /// <summary>商人卡专用：本次出牌实际花费金币（撒币 / 时间就是金钱用）</summary>
+        public int GoldSpent = 0;
     }
 
     // ============= 具体效果实现 =============
