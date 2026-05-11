@@ -18,22 +18,5 @@ namespace JailerGame.Core
         }
     }
 
-    /// <summary>流血：每回合开始扣 stacks 点伤害（不计破绽，不计格挡，纯固定）</summary>
-    public class BleedStatus : StatusEffect
-    {
-        public BleedStatus(int stacks, int turns)
-        {
-            Id = "Bleed";
-            Stacks = stacks;
-            RemainingTurns = turns;
-        }
-        public override void OnTurnStart(CombatEntity owner)
-        {
-            // 直接扣血，不走 TakeDamage（避免再次触发破绽逻辑）
-            int dmg = Stacks;
-            owner.GetType(); // suppress
-            // 使用反射或 internal 扣血都可以；这里简化：通过事件回调处理。
-            // 第二阶段再细化为 InternalDamage(int) API。
-        }
-    }
+    // BleedStatus 已挪到 JailerGame.Cards.AssassinCardEffects.cs（带完整伤害结算）
 }

@@ -1,21 +1,13 @@
-cardId,cardName,rarity,category,timing,energyCost,targetType,range,speedModifier,cooldownTurns,exhaust,description,effectsJson
-ASS_001,刺杀,Common,Attack,Normal,1,SingleEnemy,1,0,0,false,"对目标造成 5 伤害，命中破绽翻倍","[{type:'Damage',damage:5}]"
-ASS_002,防御,Common,Skill,Normal,1,Self,0,0,0,false,"格挡 5 点伤害","[{type:'Block',blockAmount:5}]"
-ASS_003,暗中前行,Common,Movement,FirstStrike,1,HexCell,0,2,0,false,"必须本回合优先使用，使用后结束本回合，移动距离=本回合手牌最大费用","[{type:'Move',maxSteps:0}]"
-ASS_004,殊死一搏,Rare,Special,Normal,3,SingleEnemy,1,-2,3,true,"将所有手牌当作刺杀使用，破绽伤害 x1.5","[{type:'DesperateStrike',damagePerCard:5,critMultiplier:1.5}]"
-ASS_005,难以治愈,Uncommon,Attack,Normal,1,SingleEnemy,1,-1,0,false,"刺杀伤害 x0.75，但目标流血叠加","[{type:'RustyBlade',damage:4,bleedStacks:2,bleedTurns:3}]"
-ASS_006,按兵不动,Uncommon,Special,EndOfTurn,0,SingleEnemy,3,3,2,false,"本回合不行动，下回合敌人破绽出现在你面前","[{type:'HoldPosition'}]"
-ASS_007,投毒,Uncommon,Skill,Normal,1,SingleEnemy,1,0,3,false,"未来 2 回合敌人回血减半，5 回合中毒","[{type:'Poison',duration:5}]"
-ASS_008,反客为主,Rare,Special,Reaction,2,Self,0,0,4,false,"敌人对你攻击时躲避并随机打出一张手牌","[{type:'Counter'}]"
-ASS_009,收刀,Common,Skill,Normal,1,Self,0,1,2,false,"敌人无法攻击你的破绽，2 回合内不可使用刺杀","[{type:'Sheathe'}]"
-ASS_010,重装上阵,Rare,Power,Normal,2,Self,0,-3,0,true,"切换为远程模式，仅在队友身后能攻击","[{type:'RangedStance'}]"
-ASS_011,精准刺杀,Uncommon,Attack,Normal,2,SingleEnemy,1,0,0,false,"造成 8 伤害，必命中破绽","[{type:'PreciseStrike',damage:8}]"
-ASS_012,影分身,Rare,Skill,Normal,2,Self,0,0,4,false,"在身后格创造一个影子，敌人首次攻击你被影子代替","[{type:'Shadow'}]"
-ASS_013,致命三连,Rare,Attack,Normal,2,SingleEnemy,1,0,3,false,"对同一目标连续 3 次刺杀（伤害 3+3+3）","[{type:'TripleStab',perHit:3}]"
-ASS_014,绊脚陷阱,Common,Skill,Normal,1,HexCell,2,0,2,false,"在指定格放置陷阱，敌人进入受 4 伤害并僵直","[{type:'Trap',damage:4}]"
-ASS_015,绕背,Common,Movement,Normal,1,HexCell,2,1,0,false,"绕到目标背后，本回合下次刺杀必命中破绽","[{type:'Flank'}]"
-ASS_016,瞄准,Common,Skill,Normal,1,SingleEnemy,3,0,1,false,"在目标的"伤口"破绽边数翻倍出现","[{type:'Mark'}]"
-ASS_017,毒刃,Uncommon,Attack,Normal,2,SingleEnemy,1,0,0,false,"造成 4 伤害并施加流血 3","[{type:'PoisonBlade',damage:4,bleed:3}]"
-ASS_018,虚晃,Common,Skill,Normal,1,SingleEnemy,2,0,1,false,"在目标的随机一边制造伤口破绽","[{type:'CreateBreakPoint',type:'Wound',duration:2}]"
-ASS_019,死亡突袭,Legendary,Attack,Normal,3,SingleEnemy,2,2,5,true,"对低于 30% 血量的目标直接斩杀","[{type:'Execute',threshold:0.3}]"
-ASS_020,残影步,Rare,Movement,FirstStrike,1,HexCell,0,3,2,false,"移动 3 格，过程中 1 次免伤","[{type:'PhantomStep',distance:3}]"
+cardId,cardName,description,rarity,category,timing,energyCost,targetType,range,cooldownTurns,exhaust,effects
+ASS_001,刺杀,对目标造成5点伤害（命中破绽翻倍）,Common,Attack,Normal,1,SingleEnemy,1,0,FALSE,DamageEffect{damage=5;crit=2.0}
+ASS_002,防御,获得5点格挡,Common,Skill,Normal,1,Self,0,0,FALSE,BlockEffect{block=5;self=true}
+ASS_003,移动,移动1个单位,Common,Movement,Normal,0,HexCell,1,0,FALSE,MoveEffect{maxSteps=1}
+ASS_004,暗中前行,本回合优先使用；使用后结束本回合；移动 = 手牌最高能耗,Uncommon,Movement,FirstStrike,1,HexCell,0,0,FALSE,StealthAdvanceEffect{}
+ASS_005,殊死一搏,所有手牌当作刺杀使用，破绽伤害x1.5,Rare,Special,Normal,2,SingleEnemy,1,0,TRUE,DesperateStrikeEffect{damagePerCard=5;crit=1.5}
+ASS_006,难以治愈,刺杀伤害x0.75（4点）但施加流血,Uncommon,Attack,Normal,1,SingleEnemy,1,0,FALSE,RustyBladeEffect{damage=4;bleedStacks=2;bleedTurns=3}
+ASS_007,按兵不动,本回合不行动；下回合敌人破绽出现在你面前,Uncommon,Special,Normal,0,SingleEnemy,1,0,FALSE,HoldPositionEffect{}
+ASS_008,投毒,目标中毒5回合，期间回血效果减半,Uncommon,Skill,Normal,1,SingleEnemy,2,0,FALSE,PoisonEffect{duration=5;healMul=0.5}
+ASS_009,反客为主,后手反应：下回合躲避并随机出牌；4回合冷却,Rare,Skill,Reaction,1,Self,0,4,FALSE,CounterAttackEffect{cooldown=4}
+ASS_010,收刀,2回合敌人无法命中你的破绽；同期不可刺杀,Uncommon,Skill,Normal,1,Self,0,0,FALSE,SheatheEffect{duration=2}
+ASS_011,重装上阵,切换远程姿态3回合，必须站队友身后才能攻击,Rare,Power,Normal,2,Self,0,0,FALSE,HeavyArmorEffect{duration=3}
+ASS_012,回旋镖,对一条直线目标造成2x5伤害,Rare,Attack,Normal,2,SingleEnemy,3,0,FALSE,BoomerangEffect{damage=5}
